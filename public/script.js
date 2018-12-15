@@ -49,6 +49,11 @@ var matrix = [];
 var n = 80;
 var m = 80;
 side = 10;
+var time = frameRate(5);
+function frameRate( frameCount)
+    {
+        return 1000 / frameCount;
+    }
 function setup() {
 
     for (var y = 0; y < n; y++) {
@@ -60,7 +65,7 @@ function setup() {
     console.log(matrix);
 
 
-    frameRate(1);
+    setInterval ( setup , time);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
 
@@ -141,6 +146,7 @@ function draw() {
                 rect(x * side, y * side, side, side);
                 matrix[y][x].acted = false;
             }
+            setInterval( draw , time );
         }
     }
 }
